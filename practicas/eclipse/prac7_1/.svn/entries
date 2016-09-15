@@ -1,0 +1,178 @@
+10
+
+dir
+12
+https://subversion.assembla.com/svn/pedro-barquin-se/trunk/prac7_1
+https://subversion.assembla.com/svn/pedro-barquin-se
+
+
+
+2016-05-30T17:02:55.096114Z
+12
+pedro.barquin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+966c4bdb-702a-42ca-8139-32bc9e91e88b
+
+.cproject
+file
+13
+
+
+
+2016-05-25T10:50:58.000000Z
+df96bd1b16c0d325f12213407b836650
+2016-05-30T17:07:21.571449Z
+13
+pedro.barquin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+40646
+
+.project
+file
+13
+
+
+
+2015-05-08T02:03:06.000000Z
+5dc94a4857b2d15e46e4b0fa42c2b5ae
+2016-05-30T17:07:21.571449Z
+13
+pedro.barquin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2476
+
+.settings
+dir
+
+Debug
+dir
+
+actuators_drv
+dir
+
+bprint_swr
+dir
+
+components
+dir
+
+config
+dir
+
+dataclasses
+dir
+
+edroom_glue
+dir
+
+edroombp_swr
+dir
+
+edroomsl_swr
+dir
+
+edroomsl_types_swr
+dir
+
+planner_swr
+dir
+
+random_swr
+dir
+
+rtems_osswr
+dir
+
+sais
+dir
+
+sensors_drv
+dir
+
+vehicle_mmesp_project.cpp
+file
+13
+
+
+
+2016-05-25T11:06:05.000000Z
+ac0d7642f0d1b2046e1f1d786408f4ab
+2016-05-30T17:07:21.571449Z
+13
+pedro.barquin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1316
+

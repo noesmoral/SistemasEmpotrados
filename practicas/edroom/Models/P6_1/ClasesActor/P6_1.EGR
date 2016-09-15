@@ -1,0 +1,130 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+0
+0
+3
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+0
+[FinPuertos]
+[ActoresComponente]
+2
+[Version Actor Componente]
+2
+Consumer
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+63.2812
+32.0328
+80.8594
+54.6201
+CCConsumer
+[Version Actor Componente]
+2
+Producer
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+14.2578
+34.0863
+31.836
+56.6736
+CCProducer
+[FinActoresComponente]
+[Uniones]
+1
+[Version Union]
+0
+Union
+1
+pOut
+PIn
+Producer
+Consumer
+[FinUniones]
+[NumTimers]
+0
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+0
+[Modulos]
+0
+[Eventos]
+0
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+1
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+[PuntosEleccion]
+0
+[Version PuntosEleccion]
+2
+[Transiciones]
+0
+[Version Transicion]
+4
+[VariablesConstantes]
+0
+[Metodos]
+0
+[Version Metodos]
+21
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

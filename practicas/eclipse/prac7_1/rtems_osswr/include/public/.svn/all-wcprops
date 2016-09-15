@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/pedro-barquin-se/!svn/ver/13/trunk/prac7_1/rtems_osswr/include/public
+END
+basic_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/pedro-barquin-se/!svn/ver/13/trunk/prac7_1/rtems_osswr/include/public/basic_types.h
+END
+rtemsapi.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/pedro-barquin-se/!svn/ver/13/trunk/prac7_1/rtems_osswr/include/public/rtemsapi.h
+END
+posix.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/pedro-barquin-se/!svn/ver/13/trunk/prac7_1/rtems_osswr/include/public/posix.h
+END

@@ -1,0 +1,276 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+0
+0
+0
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+2
+[Version Puerto]
+0
+PIn
+0
+1
+0
+[Version Grafico Puerto]
+0
+4
+51
+CPRecData
+[Version Puerto]
+0
+Timer
+0
+1
+1
+[Version Grafico Puerto]
+0
+60
+43
+EDROOMTimingSAP
+[FinPuertos]
+[ActoresComponente]
+0
+[FinActoresComponente]
+[Uniones]
+0
+[FinUniones]
+[NumTimers]
+2
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+0
+[Modulos]
+0
+[Eventos]
+1
+[Event]
+[Version]
+1
+EvTimerTimer
+Timer
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+3
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+Ready
+;
+FConReady();
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+232 248 90 60
+[FinObjetoGrafico]
+HandleData
+;
+;
+FProgDelay();
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+388 245 90 60
+[FinObjetoGrafico]
+[PuntosEleccion]
+0
+[Version PuntosEleccion]
+2
+[Transiciones]
+3
+[Version Transicion]
+4
+Init
+I
+OSubEstI
+Ready
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+120 116 232 261 0
+[FinGraficoTransicion]
+ShowData
+Ready
+OSubEst
+HandleData
+DSubEst
+;
+[Trigger]
+PIn
+SData
+true
+ 
+ 
+ 
+FShowData();
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+322 293 388 291 1
+[FinGraficoTransicion]
+EndHandling
+HandleData
+OSubEst
+Ready
+DSubEst
+FShowTime();
+[Trigger]
+Timer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+388 261 322 261 2
+[FinGraficoTransicion]
+[VariablesConstantes]
+0
+[Metodos]
+4
+[Version Metodos]
+21
+SendMsg
+FConReady()
+0
+0
+0
+0
+1
+ 
+0
+[ServiceRequest]
+send
+PIn
+SConReady
+NULL
+EDROOMprioNormal
+Inform
+FProgDelay()
+0
+0
+0
+0
+1
+ 
+5
+	 
+	//Timing Service useful methods
+	 
+	//interval = Pr_Time(X,Y); // interval of X sec + Y microsec
+	interval=Pr_Time(1,0);
+[ServiceRequest]
+InformIn
+Timer
+EDROOMSignalTimeout
+TEDROOMByte
+EDROOMprioNormal
+MsgDataHandler
+FShowData()
+0
+0
+0
+1
+#include <stdio.h>
+1
+ 
+5
+	
+		// Data access
+	
+	// ... =varSData;
+	printf ("Data =%c\n", varSData);
+[ServiceRequest]
+Msg->data
+PIn
+SData
+TEDROOMByte
+EDROOMprioNormal
+BasicAction
+FShowTime()
+0
+0
+0
+1
+#include <stdio.h>
+1
+ 
+3
+	Pr_Time aux;
+	aux.GetTime();
+	printf("Current Time = %i\n",(uint32_t)aux.Secns());
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

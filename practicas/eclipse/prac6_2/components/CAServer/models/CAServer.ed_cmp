@@ -1,0 +1,243 @@
+import "../../../dataclasses/TEDROOMUInt8/models/TEDROOMUInt8.ed_dclass";
+import "../../../protocols/CPService/models/CPService.ed_prot";
+import "../../../protocols/EDROOMServiceLibrary/models/EDROOMServiceLibrary.ed_prot";
+
+
+
+/*
+ * EDROOM Component Model.
+ */ 
+
+
+reactive component CAServer{
+
+	uri := es.uah.aut.srg.edroom.mclev.cmp.CAServer;
+	version := v1;
+	stack_size := 1024;
+	def_max_nb_messages := 10;
+
+
+	structure {
+
+		ports {
+
+
+			system port EDROOMsl
+			{
+				id:= 0;
+				protocol:= EDROOMServiceLibrary(v1);
+			};
+			conjugated  external port pService4 {
+				id := 1;
+				cardinality := 1;
+				protocol := CPService(v1);
+
+			};
+
+			conjugated  external port pService3 {
+				id := 2;
+				cardinality := 1;
+				protocol := CPService(v1);
+
+			};
+
+			conjugated  external port pService2 {
+				id := 3;
+				cardinality := 1;
+				protocol := CPService(v1);
+
+			};
+
+			conjugated  external port pService1 {
+				id := 4;
+				cardinality := 1;
+				protocol := CPService(v1);
+
+			};
+
+
+
+		};
+
+
+	};
+
+
+	behaviour {
+
+		contexts {
+
+
+			context Top_ctx_0{
+
+
+				id := 0;
+
+
+				variables {
+					variable VresFreeNumber{
+					 class := TEDROOMUInt8(v1);
+
+					 constructor := "2";
+					};
+
+
+				};
+
+
+				states {
+					state I{
+						id := 0;
+					};
+					state Ready{
+						id := 1;
+					};
+				};
+
+
+				init state := I;
+
+
+				items{
+					/**
+					 * \brief  
+					 */
+
+					reply FAck {
+						code {
+							<code>
+							VresFreeNumber--;
+
+
+							</code>
+						};
+
+						message :=CPService(v1)::SResAck;
+
+					};
+
+					/**
+					 * \brief  
+					 */
+
+					action FFreeResource {
+						<code>
+						VresFreeNumber++;
+
+
+						</code>
+
+					};
+
+					/**
+					 * \brief  
+					 */
+
+					reply FNack {
+						code {
+							<code>
+
+
+							</code>
+						};
+
+						message :=CPService(v1)::SResNack;
+
+					};
+
+
+				};
+
+
+				choice points{
+					choice point ResRequest{
+
+
+						id := 0;
+
+
+						branches{
+
+							branch ResRequest_Ack{
+								id := 0;
+								sink := Ready;
+
+
+								invoke := FAck;
+
+								guard := ;
+
+							};
+
+
+						};
+
+						default branch ResRequest_Nack{
+							id := 1;
+							sink := Ready;
+
+							invoke := FNack;
+						};
+					};
+				};
+
+
+				transitions{
+
+					transition Init{
+						id := 0;
+						source := I;
+						sink := Ready;
+
+
+
+						asynchronous trigger {
+							port := EDROOMsl;
+							message := EDROOMServiceLibrary(v1)::EDROOMStart;
+						};
+					};
+
+					transition ResRequest{
+						id := 1;
+						source := Ready;
+						sink := ResRequest;
+
+
+
+						synchronous trigger {
+							port := any ;
+							message := CPService(v1)::SResReq;
+						};
+					};
+
+					transition FreeResource{
+						id := 2;
+						source := Ready;
+						sink := Ready;
+
+
+						actions := FFreeResource;
+
+
+						asynchronous trigger {
+							port := any ;
+							message := CPService(v1)::SFreeRes;
+						};
+					};
+
+
+				};
+
+
+			};
+
+
+		};
+
+		top context := Top_ctx_0;
+
+
+	};
+
+
+};

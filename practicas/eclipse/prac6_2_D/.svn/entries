@@ -1,0 +1,166 @@
+10
+
+dir
+14
+https://subversion.assembla.com/svn/pedro-barquin-se/trunk/prac6_2_D
+https://subversion.assembla.com/svn/pedro-barquin-se
+
+
+
+2016-05-30T17:08:33.455139Z
+14
+pedro.barquin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+966c4bdb-702a-42ca-8139-32bc9e91e88b
+
+.cproject
+file
+15
+
+
+
+2016-05-26T12:09:26.000000Z
+25a250bdf5fcff9dea8fcd98863b3442
+2016-05-30T17:10:48.569922Z
+15
+pedro.barquin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+40325
+
+.project
+file
+15
+
+
+
+2016-05-26T11:53:02.000000Z
+9b3738b3f687facdb83a1add3929a0dd
+2016-05-30T17:10:48.569922Z
+15
+pedro.barquin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2478
+
+.settings
+dir
+
+Debug
+dir
+
+components
+dir
+
+config
+dir
+
+data
+dir
+
+dataclasses
+dir
+
+edroom_glue
+dir
+
+edroombp_swr
+dir
+
+edroomsl_swr
+dir
+
+edroomsl_types_swr
+dir
+
+prac6_2_mmesp_project.cpp
+file
+15
+
+
+
+2016-05-26T12:08:15.000000Z
+55d9bb6ce18121d5e4e4755c89d27412
+2016-05-30T17:10:48.569922Z
+15
+pedro.barquin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2073
+
+rtems_osswr
+dir
+
+sais
+dir
+

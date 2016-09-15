@@ -1,0 +1,60 @@
+[Version Protocolo]
+9
+0
+0
+0
+0
+0
+2
+[Version Mensaje]
+1
+[Version Senal]
+0
+SResNack
+[Version Dato]
+1
+NULL
+Z:\home\pedro\Desktop\Untitled Folder\Models (copy)\prac6_2C\
+es.uah.aut.srg.edroom.mclev.data_sai.NULL
+v1
+2
+SResReq
+[Version Mensaje]
+1
+[Version Senal]
+0
+SResAck
+[Version Dato]
+1
+TEDROOMUInt8
+Z:\home\pedro\Desktop\Untitled Folder\Models (copy)\prac6_2C\
+es.uah.aut.srg.edroom.mclev.data_sai.TEDROOMUInt8
+v1
+2
+SResReq
+2
+[Version Mensaje]
+1
+[Version Senal]
+0
+SResReq
+[Version Dato]
+1
+NULL
+Z:\home\pedro\Desktop\Untitled Folder\Models (copy)\prac6_2C\
+es.uah.aut.srg.edroom.mclev.data_sai.NULL
+v1
+1
+[Version Mensaje]
+1
+[Version Senal]
+0
+SFreeRes
+[Version Dato]
+1
+TEDROOMUInt8
+Z:\home\pedro\Desktop\Untitled Folder\Models (copy)\prac6_2C\
+es.uah.aut.srg.edroom.mclev.data_sai.TEDROOMUInt8
+v1
+0
+0

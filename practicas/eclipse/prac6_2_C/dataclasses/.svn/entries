@@ -1,0 +1,76 @@
+10
+
+dir
+13
+https://subversion.assembla.com/svn/waspacegb8/trunk/prac6_2_C/dataclasses
+https://subversion.assembla.com/svn/waspacegb8
+
+
+
+2016-05-30T03:01:50.381584Z
+7
+wasimgb8
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b4633e07-6ec4-4898-baa7-9bb57bbee241
+
+Pr_Time
+dir
+
+TEDROOMBool
+dir
+
+TEDROOMByte
+dir
+
+TEDROOMDouble
+dir
+
+TEDROOMFloat
+dir
+
+TEDROOMInt16
+dir
+
+TEDROOMInt32
+dir
+
+TEDROOMInt64
+dir
+
+TEDROOMInt8
+dir
+
+TEDROOMUInt16
+dir
+
+TEDROOMUInt32
+dir
+
+TEDROOMUInt64
+dir
+
+TEDROOMUInt8
+dir
+
+TEDROOMWord16
+dir
+
+TEDROOMWord32
+dir
+
+TEDROOMWord64
+dir
+

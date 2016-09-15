@@ -1,0 +1,113 @@
+import "../../../protocols/EDROOMServiceLibrary/models/EDROOMServiceLibrary.ed_prot";
+import "../../../components/CAServer/models/CAServer.ed_cmp";
+import "../../../components/CAClient/models/CAClient.ed_cmp";
+
+
+
+/*
+ * EDROOM Component Model.
+ */ 
+
+
+no_pattern component prac6_2{
+
+	uri := es.uah.aut.srg.edroom.mclev.cmp.prac6_2;
+	version := v1;
+	stack_size := 1024;
+	def_max_nb_messages := 10;
+
+
+	structure {
+
+		ports {
+
+
+			system port EDROOMsl
+			{
+				id:= 0;
+				protocol:= EDROOMServiceLibrary(v1);
+			};
+
+
+		};
+
+
+		instances {
+
+
+			instance Server
+			{
+				class := CAServer(v1);
+				max_nb_messages := 14;
+				priority :=3;
+			};
+			instance Client1
+			{
+				class := CAClient(v1);
+				max_nb_messages := 13;
+				priority :=3;
+			};
+			instance Client2
+			{
+				class := CAClient(v1);
+				max_nb_messages := 13;
+				priority :=3;
+			};
+			instance Client3
+			{
+				class := CAClient(v1);
+				max_nb_messages := 13;
+				priority :=3;
+			};
+			instance Client4
+			{
+				class := CAClient(v1);
+				max_nb_messages := 13;
+				priority :=3;
+			};
+		};
+
+
+		connections {
+			connection Client4.pServReq<->Server.pService4;
+			connection Client3.pServReq<->Server.pService3;
+			connection Client2.pServReq<->Server.pService2;
+			connection Client1.pServReq<->Server.pService1;
+		};
+
+
+	};
+
+
+	behaviour {
+
+		contexts {
+
+
+			context Top_ctx_0{
+
+
+				id := 0;
+
+
+				init state := I;
+
+
+				transitions{
+
+
+				};
+
+
+			};
+
+
+		};
+
+		top context := Top_ctx_0;
+
+
+	};
+
+
+};

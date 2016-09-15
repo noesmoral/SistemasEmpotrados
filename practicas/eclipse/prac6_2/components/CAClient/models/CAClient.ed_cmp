@@ -1,0 +1,349 @@
+import "../../../protocols/CPService/models/CPService.ed_prot";
+import "../../../protocols/EDROOMTimingSAP/models/EDROOMTimingSAP.ed_prot";
+import "../../../protocols/EDROOMServiceLibrary/models/EDROOMServiceLibrary.ed_prot";
+
+
+
+/*
+ * EDROOM Component Model.
+ */ 
+
+
+proactive component CAClient{
+
+	uri := es.uah.aut.srg.edroom.mclev.cmp.CAClient;
+	version := v1;
+	stack_size := 1024;
+	def_max_nb_messages := 10;
+
+
+	structure {
+
+		ports {
+
+
+			system port EDROOMsl
+			{
+				id:= 0;
+				protocol:= EDROOMServiceLibrary(v1);
+			};
+			timing port Timer {
+				id := 1;
+				protocol := EDROOMTimingSAP(v1);
+
+			};
+
+			external port pServReq {
+				id := 2;
+				cardinality := 1;
+				protocol := CPService(v1);
+
+			};
+
+
+
+		};
+
+
+	};
+
+
+	behaviour {
+
+		contexts {
+
+
+			context Top_ctx_0{
+
+
+				id := 0;
+
+
+				states {
+					state I{
+						id := 0;
+					};
+					state Wait{
+						id := 1;
+
+						entry actions := FProgWait;
+					};
+					state Working{
+						id := 2;
+
+						entry actions := FProgWorking;
+					};
+					state Idle{
+						id := 3;
+
+						entry actions := FProgRequest;
+					};
+				};
+
+
+				init state := I;
+
+
+				guards{
+
+					/**
+					 * \brief  
+					 */
+
+					guard GIsAck {
+						<code>
+						return(MsgBack-&gt;signal==SResAck)
+
+
+						</code>
+
+					};
+
+
+				};
+
+
+				items{
+					/**
+					 * \brief  
+					 */
+
+					send FFreeRes {
+						code {
+							<code>
+
+
+							</code>
+						};
+
+						port :=pServReq;
+
+						message :=CPService(v1)::SFreeRes;
+
+						priority :=3;
+
+					};
+
+					/**
+					 * \brief  
+					 */
+
+					inform in FProgRequest {
+						code {
+							<code>
+								 
+								//Timing Service useful methods
+								 
+								interval = Pr_Time(3,0); // interval of X sec + Y microsec
+								printf(&quot;%s is sleeping\n&quot;, EDROOMcomponent.EDROOMName);
+
+
+							</code>
+						};
+
+						port :=Timer;
+
+						priority :=1;
+
+					};
+
+					/**
+					 * \brief  
+					 */
+
+					inform in FProgWait {
+						code {
+							<code>
+								 
+								//Timing Service useful methods
+								 
+								interval = Pr_Time(1,0); // interval of X sec + Y microsec
+								printf(&quot;%s is waiting\n&quot;,EDROOMcomponent.EDROOMName);
+
+
+							</code>
+						};
+
+						port :=Timer;
+
+						priority :=1;
+
+					};
+
+					/**
+					 * \brief  
+					 */
+
+					inform in FProgWorking {
+						code {
+							<code>
+								 
+								//Timing Service useful methods
+								 
+								interval = Pr_Time(2,0); // interval of X sec + Y microsec
+								printf(&quot;%s is working\n&quot;,EDROOMcomponent.EDROOMName);
+
+
+							</code>
+						};
+
+						port :=Timer;
+
+						priority :=1;
+
+					};
+
+					/**
+					 * \brief  
+					 */
+
+					invoke FResRequest {
+						code {
+							<code>
+
+
+							</code>
+						};
+
+						port :=pServReq;
+
+						message :=CPService(v1)::SResReq;
+
+						priority :=1;
+
+					};
+
+
+				};
+
+
+				choice points{
+					choice point ReqRes{
+
+
+						id := 0;
+
+
+						branches{
+
+							branch ReqRes_Ack{
+								id := 0;
+								sink := Working;
+
+
+								guard := GIsAck;
+
+							};
+
+
+						};
+
+						default branch ReqRes_Nack{
+							id := 1;
+							sink := Wait;
+						};
+					};
+					choice point TryAgain{
+
+
+						id := 1;
+
+
+						branches{
+
+							branch TryAgain_Ack{
+								id := 0;
+								sink := Working;
+
+
+								guard := GIsAck;
+
+							};
+
+
+						};
+
+						default branch TryAgain_Nack{
+							id := 1;
+							sink := Wait;
+						};
+					};
+				};
+
+
+				transitions{
+
+					transition TryAgain{
+						id := 0;
+						source := Wait;
+						sink := TryAgain;
+
+
+						invoke := FResRequest;
+
+
+						asynchronous trigger {
+							port := Timer;
+							message := EDROOMTimingSAP(v1)::EDROOMSignalTimeout;
+						};
+					};
+
+					transition ReqRes{
+						id := 1;
+						source := Idle;
+						sink := ReqRes;
+
+
+						invoke := FResRequest;
+
+
+						asynchronous trigger {
+							port := Timer;
+							message := EDROOMTimingSAP(v1)::EDROOMSignalTimeout;
+						};
+					};
+
+					transition FreeRes{
+						id := 2;
+						source := Working;
+						sink := Idle;
+
+
+						sends := FFreeRes;
+
+
+						asynchronous trigger {
+							port := Timer;
+							message := EDROOMTimingSAP(v1)::EDROOMSignalTimeout;
+						};
+					};
+
+					transition Init{
+						id := 3;
+						source := I;
+						sink := Idle;
+
+
+
+						asynchronous trigger {
+							port := EDROOMsl;
+							message := EDROOMServiceLibrary(v1)::EDROOMStart;
+						};
+					};
+
+
+				};
+
+
+			};
+
+
+		};
+
+		top context := Top_ctx_0;
+
+
+	};
+
+
+};

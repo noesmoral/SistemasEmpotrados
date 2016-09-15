@@ -1,0 +1,305 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+1
+1
+3
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+0
+[FinPuertos]
+[ActoresComponente]
+9
+[Version Actor Componente]
+2
+Client1
+1
+0
+-1
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+79.8828
+11.7043
+90.8203
+25.8727
+CAClient
+[Version Actor Componente]
+2
+Client2
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+78.5156
+30.3901
+89.4531
+43.7371
+CAClient
+[Version Actor Componente]
+2
+Client3
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+76.1719
+49.0759
+88.0859
+63.039
+CAClient
+[Version Actor Componente]
+2
+Client4
+1
+0
+-1
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+77.7345
+69.4046
+90.2345
+83.1623
+CAClient
+[Version Actor Componente]
+2
+Client5
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+10.5469
+9.03491
+20.1172
+21.3552
+CAClient
+[Version Actor Componente]
+2
+Client6
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+9.57031
+25.462
+20.3125
+38.809
+CAClient
+[Version Actor Componente]
+2
+Client7
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+9.17969
+42.0945
+19.5312
+55.6468
+CAClient
+[Version Actor Componente]
+2
+Client8
+1
+0
+0
+10
+7
+EDROOMprioNormal
+ 
+[Version Grafico Actor Componente]
+0
+8.00781
+65.2977
+19.5312
+80.2875
+CAClient
+[Version Actor Componente]
+2
+SuperServer
+1
+0
+0
+10
+7
+EDROOMprioNormal
+
+[Version Grafico Actor Componente]
+0
+37.1094
+20.5339
+62.1094
+78.6448
+CASuperServer
+[FinActoresComponente]
+[Uniones]
+8
+[Version Union]
+0
+Union
+1
+pServReq
+Service5
+Client5
+SuperServer
+[Version Union]
+0
+Union2
+1
+pServReq
+Service6
+Client6
+SuperServer
+[Version Union]
+0
+Union3
+1
+pServReq
+Service7
+Client7
+SuperServer
+[Version Union]
+0
+Union4
+1
+pServReq
+Service8
+Client8
+SuperServer
+[Version Union]
+0
+Union5
+1
+pServReq
+Service
+Client1
+SuperServer
+[Version Union]
+0
+Union6
+1
+pServReq
+Service2
+Client2
+SuperServer
+[Version Union]
+0
+Union7
+1
+pServReq
+Service3
+Client3
+SuperServer
+[Version Union]
+0
+Union8
+1
+pServReq
+Service4
+Client4
+SuperServer
+[FinUniones]
+[NumTimers]
+0
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+0
+[Modulos]
+0
+[Eventos]
+0
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+1
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+[PuntosEleccion]
+0
+[Version PuntosEleccion]
+2
+[Transiciones]
+0
+[Version Transicion]
+4
+[VariablesConstantes]
+0
+[Metodos]
+0
+[Version Metodos]
+21
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

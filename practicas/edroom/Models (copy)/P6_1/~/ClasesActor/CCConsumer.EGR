@@ -1,0 +1,208 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+1
+1
+0
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+2
+[Version Puerto]
+0
+PIn
+0
+1
+0
+[Version Grafico Puerto]
+0
+4
+51
+CPRecData
+[Version Puerto]
+0
+Timer
+0
+1
+1
+[Version Grafico Puerto]
+0
+60
+43
+EDROOMTimingSAP
+[FinPuertos]
+[ActoresComponente]
+0
+[FinActoresComponente]
+[Uniones]
+0
+[FinUniones]
+[NumTimers]
+2
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+0
+[Modulos]
+0
+[Eventos]
+1
+[Event]
+[Version]
+1
+EvTimerTimer
+Timer
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+2
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+SubEstado1
+;
+FConReady();
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+232 248 90 60
+[FinObjetoGrafico]
+[PuntosEleccion]
+0
+[Version PuntosEleccion]
+2
+[Transiciones]
+2
+[Version Transicion]
+4
+Init
+I
+OSubEstI
+SubEstado1
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+120 116 232 261 0
+[FinGraficoTransicion]
+ShowData
+SubEstado1
+OSubEst
+SubEstado1
+DSubEst
+;
+[Trigger]
+PIn
+SData
+true
+ 
+ 
+ 
+FShowData();
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+248 248 301 248 4
+[FinGraficoTransicion]
+[VariablesConstantes]
+0
+[Metodos]
+2
+[Version Metodos]
+21
+SendMsg
+FConReady()
+0
+0
+0
+0
+1
+ 
+0
+[ServiceRequest]
+send
+PIn
+SConReady
+NULL
+EDROOMprioNormal
+MsgDataHandler
+FShowData()
+0
+0
+0
+1
+#include <stdio.h>
+1
+ 
+5
+	
+		// Data access
+	
+	// ... =varSData;
+	printf ("Data =%c\n", varSData);
+[ServiceRequest]
+Msg->data
+PIn
+SData
+TEDROOMByte
+EDROOMprioNormal
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

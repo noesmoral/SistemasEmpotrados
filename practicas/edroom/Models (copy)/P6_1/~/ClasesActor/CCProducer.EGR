@@ -1,0 +1,180 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+0
+0
+0
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+1
+[Version Puerto]
+0
+pOut
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+43
+CPRecData
+[FinPuertos]
+[ActoresComponente]
+0
+[FinActoresComponente]
+[Uniones]
+0
+[FinUniones]
+[NumTimers]
+0
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+1
+[Version PoolDatosMens]
+0
+EDROOMPoolTEDROOMByte
+TEDROOMByte
+10
+[Modulos]
+0
+[Eventos]
+0
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+2
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+Ready
+;
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+228 239 90 60
+[FinObjetoGrafico]
+[PuntosEleccion]
+0
+[Version PuntosEleccion]
+2
+[Transiciones]
+2
+[Version Transicion]
+4
+Init
+I
+OSubEstI
+Ready
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+108 123 228 249 0
+[FinGraficoTransicion]
+SendData
+Ready
+OSubEst
+Ready
+DSubEst
+;
+[Trigger]
+pOut
+SConReady
+true
+ 
+ 
+ 
+;
+FSendData();
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+245 239 294 239 4
+[FinGraficoTransicion]
+[VariablesConstantes]
+0
+[Metodos]
+1
+[Version Metodos]
+21
+SendMsg
+FSendData()
+0
+0
+0
+0
+1
+ 
+4
+	
+		// Complete Data 
+	
+	*pSData_Data='A';
+[ServiceRequest]
+send
+pOut
+SData
+TEDROOMByte
+EDROOMprioNormal
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

@@ -1,0 +1,304 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+0
+0
+0
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+4
+[Version Puerto]
+0
+pService1
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+16
+CPService
+[Version Puerto]
+0
+pService2
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+33
+CPService
+[Version Puerto]
+0
+pService3
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+49
+CPService
+[Version Puerto]
+0
+pService4
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+71
+CPService
+[FinPuertos]
+[ActoresComponente]
+0
+[FinActoresComponente]
+[Uniones]
+0
+[FinUniones]
+[NumTimers]
+0
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+0
+[Modulos]
+0
+[Eventos]
+0
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+2
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+Ready
+;
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+228 265 219 76
+[FinObjetoGrafico]
+[PuntosEleccion]
+1
+[Version PuntosEleccion]
+2
+ResRequest
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+307 171 35 35
+[FinObjetoGrafico]
+ResRequest
+0
+[Ramas]
+2
+[Version Ramas]
+4
+Ack
+VresFreeNumber
+Ready
+DSubEst
+;
+ 
+ 
+ 
+;
+;
+FAck();
+[GraficoRama]
+[Version GraficoRama]
+0
+336 199 417 265 0
+[FinGraficoRama]
+Nack
+true
+Ready
+DSubEst
+;
+ 
+ 
+ 
+;
+;
+FNack();
+[GraficoRama]
+[Version GraficoRama]
+0
+313 202 245 265 2
+[FinGraficoRama]
+[Transiciones]
+3
+[Version Transicion]
+4
+Init
+I
+OSubEstI
+Ready
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+117 119 228 280 0
+[FinGraficoTransicion]
+ResRequest
+Ready
+OSubEst
+ResRequest
+DPEleccion
+;
+[Trigger]
+*
+SResReq
+true
+ 
+ 
+ 
+;
+;
+;
+1
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+324 265 324 205 1
+[FinGraficoTransicion]
+FreeResouce
+Ready
+OSubEst
+Ready
+DSubEst
+FFreeResouce();
+[Trigger]
+*
+SFreeRes
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+270 341 391 341 5
+[FinGraficoTransicion]
+[VariablesConstantes]
+1
+[Version VariYConst]
+0
+VresFreeNumber
+TEDROOMUInt8
+2
+Variable
+0
+[Metodos]
+3
+[Version Metodos]
+21
+ReplyMsg
+FAck()
+0
+0
+0
+0
+1
+ 
+1
+VresFreeNumber--;
+[ServiceRequest]
+Msg->reply
+pService4
+SResAck
+NULL
+EDROOMprioVeryHigh
+BasicAction
+FFreeResouce()
+0
+0
+0
+0
+1
+ 
+1
+VresFreeNumber++;
+ReplyMsg
+FNack()
+0
+0
+0
+0
+1
+ 
+0
+[ServiceRequest]
+Msg->reply
+pService4
+SResAck
+NULL
+EDROOMprioVeryHigh
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

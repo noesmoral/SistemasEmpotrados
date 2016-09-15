@@ -1,0 +1,723 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+1
+1
+0
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+3
+[Version Puerto]
+0
+pServReq
+0
+1
+0
+[Version Grafico Puerto]
+0
+4
+42
+CPService
+[Version Puerto]
+0
+Timer
+0
+1
+1
+[Version Grafico Puerto]
+0
+55
+44
+EDROOMTimingSAP
+[Version Puerto]
+0
+ResConfigTimer
+0
+1
+1
+[Version Grafico Puerto]
+0
+53
+62
+EDROOMTimingSAP
+[FinPuertos]
+[ActoresComponente]
+0
+[FinActoresComponente]
+[Uniones]
+0
+[FinUniones]
+[NumTimers]
+4
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+1
+[Version PoolDatosMens]
+0
+EDROOMPoolTEDROOMUInt8
+TEDROOMUInt8
+10
+[Modulos]
+0
+[Eventos]
+2
+[Event]
+[Version]
+1
+EvTimerTimer
+Timer
+[Event]
+[Version]
+1
+EvTimerResConfigTimer
+Timer
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+4
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+Idle
+FProgRequest();
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+255 328 90 60
+[FinObjetoGrafico]
+Working
+FProgWorking();
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+400 188 90 60
+[FinObjetoGrafico]
+WaitingRes
+FProgWait();
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+258 158 90 60
+[FinObjetoGrafico]
+[PuntosEleccion]
+2
+[Version PuntosEleccion]
+2
+ReqRes
+1
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+277 251 35 35
+[FinObjetoGrafico]
+TryAgain
+1
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+293 70 35 35
+[FinObjetoGrafico]
+ReqRes
+1
+[Ramas]
+2
+[Version Ramas]
+4
+Nack
+true
+WaitingRes
+DSubEst
+;
+ 
+ 
+ 
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+285 253 280 218 3
+[FinGraficoRama]
+Ack
+GIsAck()
+Working
+DSubEst
+;
+ 
+ 
+ 
+FGetResId();
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+309 261 415 248 1
+[FinGraficoRama]
+TryAgain
+1
+[Ramas]
+2
+[Version Ramas]
+4
+Nack
+true
+WaitingRes
+DSubEst
+;
+ 
+ 
+ 
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+300 102 272 158 2
+[FinGraficoRama]
+Ack
+GIsAck()
+Working
+DSubEst
+;
+ 
+ 
+ 
+FGetResId();
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+321 99 420 188 0
+[FinGraficoRama]
+[Transiciones]
+4
+[Version Transicion]
+4
+ReqRes
+Idle
+OSubEst
+ReqRes
+DPEleccion
+;
+[Trigger]
+Timer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+;
+FResRequest();
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+296 328 294 285 3
+[FinGraficoTransicion]
+TryAgain
+WaitingRes
+OSubEst
+TryAgain
+DPEleccion
+;
+[Trigger]
+Timer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+;
+FResRequest();
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+313 158 310 104 3
+[FinGraficoTransicion]
+FreeRes
+Working
+OSubEst
+Idle
+DSubEst
+;
+[Trigger]
+Timer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+FFreeRes();
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+463 248 345 350 2
+[FinGraficoTransicion]
+Init
+I
+OSubEstI
+Idle
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+115 121 255 340 0
+[FinGraficoTransicion]
+[VariablesConstantes]
+1
+[Version VariYConst]
+0
+VresId
+TEDROOMUInt8
+
+Variable
+0
+[Metodos]
+7
+[Version Metodos]
+21
+SendMsg
+FFreeRes()
+0
+0
+0
+0
+1
+ 
+4
+	
+		// Complete Data 
+	
+	*pSFreeRes_Data=VresId;
+[ServiceRequest]
+send
+pServReq
+SFreeRes
+TEDROOMUInt8
+EDROOMprioNormal
+MsgBackDataHandler
+FGetResId()
+0
+0
+0
+0
+1
+ 
+6
+	
+		// Data access
+	
+	VresId=varSResAck;
+ 
+	printf("%s get ResId %i\n", EDROOMcomponent.EDROOMName, VresId);
+[ServiceRequest]
+MsgBack->data
+pServReq
+SResAck
+TEDROOMUInt8
+ 
+Inform
+FProgRequest()
+0
+0
+0
+0
+1
+ 
+7
+	 
+	//Timing Service useful methods
+	 
+	//interval = Pr_Time(X,Y); // interval of X sec + Y microsec
+ 
+	interval =Pr_Time(3,0);
+	printf("%s is sleeping\n", EDROOMcomponent.EDROOMName);
+[ServiceRequest]
+InformIn
+Timer
+EDROOMSignalTimeout
+ 
+ 
+Inform
+FProgWait()
+0
+0
+0
+0
+1
+ 
+7
+	 
+	//Timing Service useful methods
+	 
+	//interval = Pr_Time(X,Y); // interval of X sec + Y microsec
+ 
+	interval=Pr_Time(1,0);
+	printf("%s is waiting\n", EDROOMcomponent.EDROOMName);
+[ServiceRequest]
+InformIn
+Timer
+EDROOMSignalTimeout
+ 
+ 
+Inform
+FProgWorking()
+0
+0
+0
+0
+1
+ 
+7
+	 
+	//Timing Service useful methods
+	 
+	//interval = Pr_Time(X,Y); // interval of X sec + Y microsec
+ 
+	interval =Pr_Time(2,0);
+	printf("%s is working\n", EDROOMcomponent.EDROOMName);
+[ServiceRequest]
+InformIn
+Timer
+EDROOMSignalTimeout
+NULL
+EDROOMprioNormal
+InvokeMsg
+FResRequest()
+0
+0
+0
+0
+1
+ 
+0
+[ServiceRequest]
+invoke
+pServReq
+SResReq
+NULL
+EDROOMprioVeryHigh
+Guard
+GIsAck()
+0
+0
+0
+0
+1
+ 
+1
+	return (MsgBack->signal==SResAck);
+[MaquinasSubEstados]
+1
+Working
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Working
+Top
+[Subestados]
+2
+[Version SubEstados]
+3
+ResConfig
+FProgResConfig();
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+252 214 237 60
+[FinObjetoGrafico]
+DoWork
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+399 438 90 60
+[FinObjetoGrafico]
+[PuntosEleccion]
+1
+[Version PuntosEleccion]
+2
+TryResConfig
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+294 358 35 35
+[FinObjetoGrafico]
+TryResConfig
+0
+[Ramas]
+2
+[Version Ramas]
+4
+ResConfigError
+true
+ResConfig
+DSubEst
+FResConfigFail();
+ 
+ 
+ 
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+311 358 280 274 3
+[FinGraficoRama]
+ResConfigOK
+GResConfigOK()
+DoWork
+DSubEst
+FResConfigOK();
+ 
+ 
+ 
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+325 383 399 463 0
+[FinGraficoRama]
+[Transiciones]
+3
+[Version Transicion]
+4
+ToResConfig
+TryAgain_Ack
+OPEntrada
+ResConfig
+DSubEst
+;
+[Trigger]
+Timer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+177 70 333 214 0
+[FinGraficoTransicion]
+ToResConfig2
+ReqRes_Ack
+OPEntrada
+ResConfig
+DSubEst
+;
+[Trigger]
+Timer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+140 695 252 254 1
+[FinGraficoTransicion]
+TryResConfig
+ResConfig
+OSubEst
+TryResConfig
+DPEleccion
+FTryResConfig();
+[Trigger]
+ResConfigTimer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+386 274 323 364 2
+[FinGraficoTransicion]
+[VariablesConstantes]
+1
+[Version VariYConst]
+0
+VresAttempts
+TEDROOMUInt8
+0
+Variable
+0
+[Metodos]
+5
+[Version Metodos]
+21
+Inform
+FProgResConfig()
+0
+0
+0
+0
+1
+ 
+4
+	 
+	//Timing Service useful methods
+	 
+	interval = Pr_Time(0,100000); // interval of X sec + Y microsec 100ms
+[ServiceRequest]
+InformIn
+ResConfigTimer
+EDROOMSignalTimeout
+TEDROOMUInt8
+ 
+BasicAction
+FResConfigFail()
+0
+0
+0
+0
+1
+ 
+1
+printf("%s Res %i Config Fail\n",EDROOMcomponent.EDROOMName,(int)VresId);
+BasicAction
+FResConfigOK()
+0
+0
+0
+0
+1
+ 
+2
+	printf("%s Res %i Config OK\n", EDROOMcomponent.EDROOMName, (int)VresId);
+	VresAttempts=0;
+BasicAction
+FTryResConfig()
+0
+0
+0
+0
+1
+ 
+1
+VresAttempts++;
+Guard
+GResConfigOK()
+0
+0
+0
+0
+1
+ 
+1
+	return(VresAttempts>2);
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

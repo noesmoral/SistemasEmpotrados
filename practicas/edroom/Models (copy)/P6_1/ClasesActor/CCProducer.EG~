@@ -1,0 +1,261 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+0
+0
+0
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+1
+[Version Puerto]
+0
+pOut
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+43
+CPRecData
+[FinPuertos]
+[ActoresComponente]
+0
+[FinActoresComponente]
+[Uniones]
+0
+[FinUniones]
+[NumTimers]
+0
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+1
+[Version PoolDatosMens]
+0
+EDROOMPoolTEDROOMByte
+TEDROOMByte
+10
+[Modulos]
+0
+[Eventos]
+0
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+2
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+Ready
+;
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+228 239 236 60
+[FinObjetoGrafico]
+[PuntosEleccion]
+1
+[Version PuntosEleccion]
+2
+SendData
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+333 116 35 35
+[FinObjetoGrafico]
+SendData
+0
+[Ramas]
+2
+[Version Ramas]
+4
+DataOk
+true
+Ready
+DSubEst
+;
+ 
+ 
+ 
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+339 147 256 239 2
+[FinGraficoRama]
+ResetData
+GNeedReset()
+Ready
+DSubEst
+FResetData();
+
+ 
+
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+358 147 424 239 0
+[FinGraficoRama]
+[Transiciones]
+2
+[Version Transicion]
+4
+Init
+I
+OSubEstI
+Ready
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+108 123 228 249 0
+[FinGraficoTransicion]
+SendData
+Ready
+OSubEst
+SendData
+DPEleccion
+;
+[Trigger]
+pOut
+SConReady
+true
+ 
+ 
+ 
+;
+FSendData();
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+338 239 350 150 1
+[FinGraficoTransicion]
+[VariablesConstantes]
+2
+[Version VariYConst]
+0
+Vaux
+TEDROOMByte
+'a'
+Variable
+0
+[Version VariYConst]
+0
+VauxLimit
+TEDROOMByte
+'z'
+Constante
+0
+[Metodos]
+3
+[Version Metodos]
+21
+BasicAction
+FResetData()
+0
+0
+0
+0
+1
+ 
+1
+	Vaux='a';
+SendMsg
+FSendData()
+0
+0
+0
+0
+1
+ 
+6
+	
+		// Complete Data 
+	
+	*pSData_Data=Vaux;
+	
+	Vaux++;
+[ServiceRequest]
+send
+pOut
+SData
+TEDROOMByte
+EDROOMprioNormal
+Guard
+GNeedReset()
+0
+0
+0
+0
+1
+ 
+1
+	return(Vaux>VauxLimit);
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]

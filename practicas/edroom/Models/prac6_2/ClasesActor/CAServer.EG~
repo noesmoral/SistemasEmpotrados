@@ -1,0 +1,304 @@
+[Version Actor SW]
+5
+0
+0
+0
+0
+[Modificado]
+0
+0
+0
+[Estructura]
+[Version Estructura]
+3
+[Parametro]
+NULL
+ 
+ 
+[FinParametro]
+[Stack]
+1
+[FinStack]
+[Puertos]
+4
+[Version Puerto]
+0
+pService1
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+14
+CPService
+[Version Puerto]
+0
+pService2
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+34
+CPService
+[Version Puerto]
+0
+pService3
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+62
+CPService
+[Version Puerto]
+0
+pService4
+1
+1
+0
+[Version Grafico Puerto]
+0
+93
+80
+CPService
+[FinPuertos]
+[ActoresComponente]
+0
+[FinActoresComponente]
+[Uniones]
+0
+[FinUniones]
+[NumTimers]
+0
+[FinNumTimers]
+[NumMsgDef]
+10
+[FinNumMsgDef]
+[FinEstructura]
+[Comportamiento]
+[Version Comportamiento]
+3
+0
+[Pools]
+0
+[Modulos]
+0
+[Eventos]
+0
+[Maquina de Estados]
+[Version Maquina de Estados]
+1
+Top
+NULL
+[Subestados]
+2
+[Version SubEstados]
+3
+I
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+73 73 55 55
+[FinObjetoGrafico]
+Ready
+;
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+240 318 273 93
+[FinObjetoGrafico]
+[PuntosEleccion]
+1
+[Version PuntosEleccion]
+2
+ResRequest
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+340 204 35 35
+[FinObjetoGrafico]
+ResRequest
+0
+[Ramas]
+2
+[Version Ramas]
+4
+Nack
+true
+Ready
+DSubEst
+;
+ 
+ 
+ 
+;
+;
+FNack();
+[GraficoRama]
+[Version GraficoRama]
+0
+344 232 288 318 2
+[FinGraficoRama]
+Ack
+VresFreeNumber
+Ready
+DSubEst
+;
+ 
+ 
+ 
+;
+;
+FAck();
+[GraficoRama]
+[Version GraficoRama]
+0
+373 226 431 318 0
+[FinGraficoRama]
+[Transiciones]
+3
+[Version Transicion]
+4
+Init
+I
+OSubEstI
+Ready
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+107 124 255 318 0
+[FinGraficoTransicion]
+ResRequest
+Ready
+OSubEst
+ResRequest
+DPEleccion
+;
+[Trigger]
+*
+SResReq
+true
+ 
+ 
+ 
+;
+;
+;
+1
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+362 318 357 238 3
+[FinGraficoTransicion]
+FreeResource
+Ready
+OSubEst
+Ready
+DSubEst
+FFreeResource();
+[Trigger]
+*
+SFreeRes
+true
+ 
+ 
+ 
+;
+;
+;
+0
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+301 411 412 411 5
+[FinGraficoTransicion]
+[VariablesConstantes]
+1
+[Version VariYConst]
+0
+VresFreeNumber
+TEDROOMUInt8
+2
+Variable
+0
+[Metodos]
+3
+[Version Metodos]
+21
+ReplyMsg
+FAck()
+0
+0
+0
+0
+1
+ 
+1
+VresFreeNumber--;
+[ServiceRequest]
+Msg->reply
+pService4
+SResAck
+NULL
+EDROOMprioVeryHigh
+BasicAction
+FFreeResource()
+0
+0
+0
+0
+1
+ 
+1
+VresFreeNumber++;
+ReplyMsg
+FNack()
+0
+0
+0
+0
+1
+ 
+0
+[ServiceRequest]
+Msg->reply
+pService4
+SResNack
+NULL
+EDROOMprioVeryHigh
+[MaquinasSubEstados]
+0
+[FinMaquinasSubEstados]
+[Fin Maquina de Estados]
+[FinComportamiento]
